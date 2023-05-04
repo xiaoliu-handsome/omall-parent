@@ -1,0 +1,5 @@
+com\offcn\all\WebAllApplication.class
+com\offcn\all\controller\ItemController.class
+com\offcn\all\controller\PassportController.class
+com\offcn\all\controller\IndexController.class
+com\offcn\all\controller\ListController.class

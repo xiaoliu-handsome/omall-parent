@@ -1,0 +1,8 @@
+com\offcn\common\util\MD5.class
+com\offcn\common\util\AuthContextHolder.class
+com\offcn\common\util\DateUtil.class
+com\offcn\common\result\Result.class
+com\offcn\common\util\IpUtil.class
+com\offcn\common\exception\OmallException.class
+com\offcn\common\util\HttpClientUtil.class
+com\offcn\common\result\ResultCodeEnum.class
