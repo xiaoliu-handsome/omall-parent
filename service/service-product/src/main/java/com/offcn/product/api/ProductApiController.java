@@ -2,9 +2,7 @@ package com.offcn.product.api;
 
 import com.alibaba.fastjson.JSONObject;
 import com.offcn.common.result.Result;
-import com.offcn.model.product.BaseCategoryView;
-import com.offcn.model.product.SkuInfo;
-import com.offcn.model.product.SpuSaleAttr;
+import com.offcn.model.product.*;
 import com.offcn.product.service.ManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -80,5 +78,24 @@ public class ProductApiController {
         List<JSONObject> list = manageService.getBaseCategoryList();
         return Result.ok(list);
     }
+    /**
+     * 通过品牌Id 来查询数据
+     * @param tmId
+     * @return
+     */
+    @GetMapping("inner/getTrademark/{tmId}")
+    public BaseTrademark getTrademark(@PathVariable("tmId")Long tmId){
+        return manageService.getTrademarkByTmId(tmId);
+    }
+    /**
+     * 通过skuId 集合来查询数据
+     * @param skuId
+     * @return
+     */
+    @GetMapping("inner/getAttrList/{skuId}")
+    public List<BaseAttrInfo> getAttrList(@PathVariable("skuId") Long skuId){
+        return manageService.getAttrList(skuId);
+    }
+
 
 }

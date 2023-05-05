@@ -149,4 +149,17 @@ public interface ManageService {
      */
     List<JSONObject> getBaseCategoryList();
 
+    /**
+     * 通过品牌Id 来查询数据
+     * @param tmId
+     * @return
+     */
+    BaseTrademark getTrademarkByTmId(Long tmId);
+    /**
+     * 通过skuId 来查询平台属性数据
+     * @param skuId
+     * @return
+     */
+    List<BaseAttrInfo> getAttrList(Long skuId);
+
 }

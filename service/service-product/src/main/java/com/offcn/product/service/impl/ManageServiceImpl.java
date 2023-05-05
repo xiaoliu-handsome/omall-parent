@@ -70,6 +70,10 @@ public class ManageServiceImpl implements ManageService {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @Autowired
+    private BaseTrademarkMapper baseTrademarkMapper;
+
+
 
     @Override
     public List<BaseCategory1> getCategory1() {
@@ -431,7 +435,15 @@ public class ManageServiceImpl implements ManageService {
         }
         return list;
     }
+    @Override
+    public BaseTrademark getTrademarkByTmId(Long tmId) {
+        return baseTrademarkMapper.selectById(tmId);
+    }
 
+    @Override
+    public List<BaseAttrInfo> getAttrList(Long skuId) {
+        return baseAttrInfoMapper.selectBaseAttrInfoListBySkuId(skuId);
+    }
 
     /**
      * 根据属性id获取属性值
