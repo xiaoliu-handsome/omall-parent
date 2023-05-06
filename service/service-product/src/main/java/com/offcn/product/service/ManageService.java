@@ -3,9 +3,7 @@ package com.offcn.product.service;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.offcn.model.product.*;
-import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;

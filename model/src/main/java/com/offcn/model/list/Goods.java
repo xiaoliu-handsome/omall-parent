@@ -1,5 +1,6 @@
 package com.offcn.model.list;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.DateFormat;
@@ -26,7 +27,8 @@ public class Goods {
     @Field(type = FieldType.Double)
     private Double price;
 
-    @Field(type = FieldType.Date,format = DateFormat.basic_date_time)
+//    @Field(type = FieldType.Date,format = DateFormat.basic_date_time)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date createTime; // 新品
 
     @Field(type = FieldType.Long)
