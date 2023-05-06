@@ -49,5 +49,17 @@ public class ListApiController {
         searchService.lowerGoods(skuId);
         return Result.ok();
     }
+    /**
+     * 更新商品incrHotScore
+     *
+     * @param skuId
+     * @return
+     */
+    @GetMapping("inner/incrHotScore/{skuId}")
+    public Result incrHotScore(@PathVariable("skuId") Long skuId) {
+        // 调用服务层
+        searchService.incrHotScore(skuId);
+        return Result.ok();
+    }
 
 }

@@ -26,7 +26,8 @@ public class ItemServiceImpl implements ItemService {
     @Autowired
     private ThreadPoolExecutor threadPoolExecutor;
 
-        @Override
+
+    @Override
         public Map<String, Object> getBySkuId (Long skuId){
             Map<String, Object> result = new HashMap<>();
 

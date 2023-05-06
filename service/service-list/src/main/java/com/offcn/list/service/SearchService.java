@@ -12,5 +12,10 @@ public interface SearchService {
      * @param skuId
      */
     void lowerGoods(Long skuId);
+    /**
+     * 更新热点访问次数
+     * @param skuId
+     */
+    void incrHotScore(Long skuId);
 
 }

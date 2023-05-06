@@ -7,16 +7,21 @@ import com.offcn.model.list.SearchAttr;
 import com.offcn.model.product.*;
 import com.offcn.product.client.ProductFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
-
+@Service
 public class SearchServiceImpl implements SearchService {
 
     @Autowired
     private ProductFeignClient productFeignClient;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Autowired
     private GoodsRepository goodsRepository;
@@ -83,5 +88,21 @@ public class SearchServiceImpl implements SearchService {
     public void lowerGoods(Long skuId) {
         this.goodsRepository.deleteById(skuId);
     }
+
+    @Override
+    public void incrHotScore(Long skuId) {
+        // 定义key
+        String hotKey = "hotScore";
+        // 保存数据
+        Double hotScore = redisTemplate.opsForZSet().incrementScore(hotKey, "skuId:" + skuId, 1);
+        if (hotScore%10==0){
+            // 更新es
+            Optional<Goods> optional = goodsRepository.findById(skuId);
+            Goods goods = optional.get();
+            goods.setHotScore(Math.round(hotScore));
+            goodsRepository.save(goods);
+        }
+    }
+
 }
 
