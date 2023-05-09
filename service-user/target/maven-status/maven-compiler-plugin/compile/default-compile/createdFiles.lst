@@ -1,0 +1,5 @@
+com\offcn\user\controller\PassportApiController.class
+com\offcn\user\service\UserService.class
+com\offcn\user\Mapper\UserInfoMapper.class
+com\offcn\user\ServiceUserApplication.class
+com\offcn\user\service\impl\UserServiceImpl.class

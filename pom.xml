@@ -15,6 +15,7 @@
         <module>service</module>
         <module>server-gateway</module>
         <module>service-client</module>
+        <module>service-user</module>
         <module>web</module>
 
     </modules>

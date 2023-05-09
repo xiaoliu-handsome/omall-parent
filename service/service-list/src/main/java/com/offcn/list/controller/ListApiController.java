@@ -3,12 +3,13 @@ package com.offcn.list.controller;
 import com.offcn.common.result.Result;
 import com.offcn.list.service.SearchService;
 import com.offcn.model.list.Goods;
+import com.offcn.model.list.SearchParam;
+import com.offcn.model.list.SearchResponseVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("api/list")
@@ -60,6 +61,17 @@ public class ListApiController {
         // 调用服务层
         searchService.incrHotScore(skuId);
         return Result.ok();
+    }
+    /**
+     * 搜索商品
+     * @param searchParam
+     * @return
+     * @throws IOException
+     */
+    @PostMapping
+    public Result list(@RequestBody SearchParam searchParam) throws IOException {
+        SearchResponseVo response = searchService.search(searchParam);
+        return Result.ok(response);
     }
 
 }

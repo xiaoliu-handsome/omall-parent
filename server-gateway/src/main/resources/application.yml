@@ -31,3 +31,27 @@ spring:
           predicates:
             - Host=www.omall.com
 
+  #==================web前端--搜索==========================
+        - id: web-list
+          uri: lb://web-all
+          predicates:
+            - Host=list.omall.com
+
+        - id: service-user
+          uri: lb://service-user
+          predicates:
+            - Path=/*/user/**
+
+        - id: web-passport
+          uri: lb://web-all
+          predicates:
+            - Host=passport.omall.com
+  redis:
+    host: 192.168.188.152
+    port: 6379
+    database: 0
+    timeout: 1800000
+    password:
+
+authUrls:
+  url: trade.html,myOrder.html,list.html

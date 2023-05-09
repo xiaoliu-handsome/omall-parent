@@ -1,5 +1,10 @@
 package com.offcn.list.service;
 
+import com.offcn.model.list.SearchParam;
+import com.offcn.model.list.SearchResponseVo;
+
+import java.io.IOException;
+
 public interface SearchService {
     /**
      * 上架商品列表
@@ -17,5 +22,12 @@ public interface SearchService {
      * @param skuId
      */
     void incrHotScore(Long skuId);
+    /**
+     * 搜索列表
+     * @param searchParam
+     * @return
+     * @throws IOException
+     */
+    SearchResponseVo search(SearchParam searchParam) throws IOException;
 
 }
